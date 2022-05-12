@@ -29,6 +29,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cari', [SearchByCategoriesContoller::class, 'searchByCategories']);
     
     Route::get('/urutkan', [SortingController::class, 'sorter']);
+    Route::get('/hapus/{id}', [JourneyController::class, 'deleteData'])->name('deleteData');
+
+    Route::get('/ubah/{id}', [JourneyController::class, 'ubahData'])->name('ubahData');
+    Route::post('/update', [JourneyController::class, 'updateData'])->name('updateData');
 
     Route::get('/logout', [LogoutController::class, 'logout']);
 });

@@ -6,13 +6,21 @@
 
 @section('app.content')
     <div class="relative overflow-x-auto sm:rounded-lg">
+        @if (session()->has('message'))
+            <div class="flex justify-between text-green-200 shadow-inner rounded p-3 bg-green-600">
+                <p class="self-center">
+                    <strong>Success </strong> {{ session('message') }}
+                </p>
+                <strong class="text-xl align-center cursor-pointer alert-del">&times;</strong>
+            </div>
+        @endif
         <div class="p-4">
             {{-- search by category --}}
             <form action="/cari" method="GET">
                 @csrf
                 <div class="flex justify-between">
                     <div class="flex justify-start">
-                        <select onchange="searchCategories(this);" name="search" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg">
+                        <select onchange="searchCategories(this);" name="search" id="search" class="bg-gray-50 border border-gray-300 px-7 text-gray-900 text-sm rounded-lg">
                             <option value="tanggal">Tanggal</option>
                             <option value="lokasi">Lokasi</option>
                             <option value="suhu">Suhu</option>
@@ -21,7 +29,7 @@
                             {{-- tanggal --}}
                             <div class="form-group inline-flex" id="iftanggal">
                                 <input type="text" name="tanggal" id="table-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-60 pl-8 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan tanggal">
-                                <button type="submit" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-r-lg py-3 px-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "><i class="fas fa-search"></i></button>
+                                <button type="submit" class="p bg-gray-50 border border-gray-300 text-gray-900 rounded-r-lg py-3 px-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ">Cari</button>
                                 {{-- filter --}}
                                 <button id="dropdownFilteringButton" data-dropdown-toggle="dropdownTanggal" class="text-gray-900 bg-gray-50 mx-4 focus:ring-blue-500 focus:border-blue-500  focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Urutkan <i class="fas fa-angle-down ml-2"></i></button>
                                 {{-- dropdown menu --}}
@@ -39,7 +47,7 @@
                             {{-- lokasi --}}
                             <div class="form-group hidden" id="iflokasi">
                                 <input type="text" name="lokasi" id="table-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-60 pl-8 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan lokasi">
-                                <button type="submit" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-r-lg py-3 px-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "><i class="fas fa-search"></i></button>
+                                <button type="submit" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-r-lg py-3 px-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ">Cari</button>
                                 {{-- filter --}}
                                 <button id="dropdownFilteringButton" data-dropdown-toggle="dropdownLokasi" class="text-gray-900 bg-gray-50 mx-4 focus:ring-blue-500 focus:border-blue-500  focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Urutkan <i class="fas fa-angle-down ml-2"></i></button>
                                 {{-- dropdown menu --}}
@@ -57,7 +65,7 @@
                             {{-- suhu --}}
                             <div class="form-group hidden" id="ifsuhu">
                                 <input type="text" name="suhu" id="table-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-60 pl-8 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan suhu">
-                                <button type="submit" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-r-lg py-3 px-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "><i class="fas fa-search"></i></button>
+                                <button type="submit" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-r-lg py-3 px-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ">Cari</button>
                                 {{-- filter --}}
                                 <button id="dropdownFilteringButton" data-dropdown-toggle="dropdownSuhu" class="text-gray-900 bg-gray-50 mx-4 focus:ring-blue-500 focus:border-blue-500  focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Urutkan <i class="fas fa-angle-down ml-2"></i></button>
                                 {{-- dropdown menu --}}
@@ -77,6 +85,7 @@
                     <a href="/isi-data" class="py-3 px-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Masukkan Data</a>
                 </div>
             </form>
+            
             <table class="table-auto w-full my-8 text-sm text-center text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -92,6 +101,9 @@
                         <th scope="col" class="px-6 py-3">
                             Suhu
                         </th>
+                        <th scope="col" class="px-6 py-3">
+                            Aksi
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -104,6 +116,10 @@
                             <td class="px-6 py-3">{{ $d->tanggal }}</td>
                             <td class="px-6 py-3">{{ $d->lokasi }}</td>
                             <td class="px-6 py-3">{{ $d->suhu }}</td>
+                            <td class="px-6 py-3">
+                                <a href="/ubah/{{ $d->id }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">Update</a>
+                                <a href="/hapus/{{ $d->id }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" onclick="return confirm('Yakin menghapus data ini?')">Delete</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -128,5 +144,11 @@
                 document.getElementById('ifsuhu').style.display = 'flex';
             }
         }
+        var alert_del = document.querySelectorAll('.alert-del');
+        alert_del.forEach((x) =>
+            x.addEventListener('click', function () {
+            x.parentElement.classList.add('hidden');
+            })
+        );
     </script>
 @endsection
