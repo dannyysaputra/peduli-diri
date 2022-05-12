@@ -18,7 +18,7 @@ class JourneyFactory extends Factory
     public function definition()
     {
         return [
-            'id_user' => 1,
+            'user_id' => 1,
             'tanggal' => $this->faker->dateTimeBetween('-2 year', 'now'),
             'lokasi' => $this->faker->streetAddress(),
             'suhu' => $this->faker->numberBetween(32, 36)

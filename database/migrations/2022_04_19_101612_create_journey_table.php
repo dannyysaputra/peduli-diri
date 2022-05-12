@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('journey', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_user');
+            $table->foreignId('user_id');
             $table->dateTime('tanggal');
             $table->string('lokasi');
             $table->integer('suhu');

@@ -15,6 +15,6 @@ class JourneySeeder extends Seeder
      */
     public function run()
     {
-        Journey::factory(30)->create();
+        Journey::factory(26)->create();
     }
 }

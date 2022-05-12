@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Journey;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JourneyController extends Controller
 {
@@ -13,7 +13,7 @@ class JourneyController extends Controller
     }
 
     public function catatanPerjalanan() {
-        $data = DB::table('journey')->paginate(10);
+        $data = Auth::user()->journey()->paginate(10);
         return view('pages.dashboard', ['data' => $data]);
     }
 
@@ -22,8 +22,10 @@ class JourneyController extends Controller
     }
 
     public function createData(Request $request) {
+        $user_id = Auth::user()->id;
+        
         $data = [
-            'id_user' => 1,
+            'user_id' => $user_id,
             'tanggal' => $request->tanggal,
             'lokasi' => $request->lokasi,
             'suhu' => $request->suhu,

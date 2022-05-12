@@ -43,7 +43,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function journeyModels() {
-        return $this->hasMany(Journey::class, 'id_user', 'id');
+    public function journey() {
+        return $this->hasMany(Journey::class, 'user_id');
     }
 }

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="flex items-center justify-center min-h-screen bg-gray-100 md:w-auto">
         <div class="px-16 py-12 rounded-lg mt-4 text-left bg-white shadow-lg">
             @if (session()->has('success'))
                 <div class="bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700" role="alert">

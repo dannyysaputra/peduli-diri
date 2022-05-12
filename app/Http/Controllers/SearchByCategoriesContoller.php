@@ -11,17 +11,17 @@ use Illuminate\Support\Facades\DB;
 class SearchByCategoriesContoller extends Controller
 {
     public function searchByCategories(Request $request) {
-        $journeys = Auth::user()->journeyModels();
+        $journey = Auth::user()->journey();
 
         if ($search = $request->tanggal) {
-            $data = $journeys->where('journey.tanggal', $search)
+            $data = $journey->where('journey.tanggal', $search)
                             ->orWhereYear('journey.tanggal', $search)->paginate(10);
         } elseif ($search = $request->lokasi) {
-            $data = $journeys->where('journey.lokasi', 'like', '%'.$search.'%')->paginate(10);
+            $data = $journey->where('journey.lokasi', $search)->paginate(10);
         } elseif ($search = $request->suhu) {
-            $data = $journeys->where('journey.suhu', 'like', '%'.$search.'%')->paginate(10);
+            $data = $journey->where('journey.suhu', $search)->paginate(10);
         } else {
-            $data = $journeys->paginate(10);
+            $data = $journey->paginate(10);
 
             $mode = $request->query('mode');
             $field = $request->query('field');

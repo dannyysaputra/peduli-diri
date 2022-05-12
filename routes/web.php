@@ -30,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/urutkan', [SortingController::class, 'sorter']);
 
-    Route::any('/logout', [LogoutController::class, 'logout']);
+    Route::get('/logout', [LogoutController::class, 'logout']);
 });
 
 Route::middleware(['guest'])->group(function () {

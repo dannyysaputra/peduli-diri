@@ -14,8 +14,8 @@
         {{-- pages --}}
         <div class="justify-between items-center md:flex md:w-auto md:order-1" id="mobile-menu-3">
             <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-                <li class="mx-2">
-                    <a href="/home" class="block py-2 pr-4 pl-3 text-md md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
+                <li class="{{ Request::is('home') ? 'active:bg-green-700' : '' }} mx-2">
+                    <a href="/home" class="block py-2 pr-4 pl-3 text-md text-teal-200 hover:text-blue-500 md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
                 </li>
                 <li class="mx-2">
                     <a href="/catatan-perjalanan" class="block py-2 pr-4 pl-3 text-md hover:text-blue-900 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Catatan Perjalanan</a>

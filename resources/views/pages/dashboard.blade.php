@@ -18,6 +18,7 @@
                             <option value="suhu">Suhu</option>
                         </select>
                         <div class="ml-3">
+                            {{-- tanggal --}}
                             <div class="form-group inline-flex" id="iftanggal">
                                 <input type="text" name="tanggal" id="table-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-60 pl-8 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan tanggal">
                                 <button type="submit" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-r-lg py-3 px-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "><i class="fas fa-search"></i></button>
@@ -35,6 +36,7 @@
                                     </ul>
                                 </div>
                             </div>
+                            {{-- lokasi --}}
                             <div class="form-group hidden" id="iflokasi">
                                 <input type="text" name="lokasi" id="table-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-60 pl-8 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan lokasi">
                                 <button type="submit" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-r-lg py-3 px-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "><i class="fas fa-search"></i></button>
@@ -52,6 +54,7 @@
                                     </ul>
                                 </div>
                             </div>
+                            {{-- suhu --}}
                             <div class="form-group hidden" id="ifsuhu">
                                 <input type="text" name="suhu" id="table-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-60 pl-8 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan suhu">
                                 <button type="submit" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-r-lg py-3 px-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "><i class="fas fa-search"></i></button>
@@ -102,7 +105,6 @@
                             <td class="px-6 py-3">{{ $d->lokasi }}</td>
                             <td class="px-6 py-3">{{ $d->suhu }}</td>
                         </tr>
-                       
                     @endforeach
                 </tbody>
                 

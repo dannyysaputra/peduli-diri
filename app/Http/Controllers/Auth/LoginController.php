@@ -23,6 +23,6 @@ class LoginController extends Controller
             return redirect('/home');
         };
 
-        return back()->with('failed', 'Percobaan masuk gagal. Mohon periksa Nama atau NIK yang Anda dimasukkan.');
+        return back()->with('failed', 'Percobaan masuk gagal. Silahkan coba lagi!');
     }
 }
