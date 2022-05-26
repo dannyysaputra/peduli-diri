@@ -10,10 +10,14 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     {{-- JS --}}
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://kit.fontawesome.com/35c34487a7.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </head>
 <body class="bg-blue-200">

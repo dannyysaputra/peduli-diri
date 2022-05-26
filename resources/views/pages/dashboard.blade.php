@@ -113,12 +113,12 @@
                     @foreach ($data as $d)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <th scope="row" class="px-3 py-1">{{ $id++ }}</th>
-                            <td class="px-6 py-3">{{ $d->tanggal }}</td>
+                            <td class="px-6 py-3">{{ $d->tanggal }} {{ $d->jam }}</td>
                             <td class="px-6 py-3">{{ $d->lokasi }}</td>
                             <td class="px-6 py-3">{{ $d->suhu }}</td>
                             <td class="px-6 py-3">
-                                <a href="/ubah/{{ $d->id }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">Update</a>
-                                <a href="/hapus/{{ $d->id }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" onclick="return confirm('Yakin menghapus data ini?')">Delete</a>
+                                <a href="/ubah/{{ $d->id }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-md">Update</a>
+                                <a href="/hapus/{{ $d->id }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md" onclick="return confirm('Yakin menghapus data ini?')">Delete</a>
                             </td>
                         </tr>
                     @endforeach

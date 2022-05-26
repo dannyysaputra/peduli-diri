@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-    <div class="flex items-center justify-center min-h-screen bg-gray-100 md:w-auto">
-        <div class="px-16 py-12 rounded-lg mt-4 text-left bg-white shadow-lg">
+    <div class="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 bg-gray-100 md:w-auto">
+        <div class="px-16 py-12 rounded-lg mt-4 max-w-md space-y-8 w-5/6 text-left bg-white shadow-lg">
             @if (session()->has('success'))
                 <div class="bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700" role="alert">
                     {{ session('success') }}
@@ -33,23 +33,39 @@
                 <div class="mt-4">
                     <div>
                         <label class="block" for="name">Nama<label>
-                                <input type="text" placeholder="Masukkan Nama" id="name" name="name"
-                                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" required autofocus value="{{ old('name') }}">
-                                @error('name')
-                                    <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                                        {{ $message }}
-                                    </span>
-                                @enderror
+                        <input type="text" placeholder="Masukkan Nama" id="name" name="name"
+                        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"  autofocus value="{{ old('name') }}" 
+                        @if (Cookie::has('username'))
+                            value="{{ Cookie::get('username') }}"
+                        @endif>
+                        @error('name')
+                            <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                                {{ $message }}
+                            </span>
+                        @enderror
                     </div>
                     <div class="mt-4">
                         <label class="block" for="password">NIK<label>
-                                <input type="number" maxlength="16" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" min="0" id="rulesInput" pattern="[0-9]" placeholder="Masukkan NIK" id="password" name="password"
-                                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" required>
-                                @error('password')
-                                    <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                                        {{ $message }}
-                                    </span>
-                                @enderror
+                        <input type="number" maxlength="16" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" min="0" id="rulesInput" pattern="[0-9]" placeholder="Masukkan NIK" id="password" name="password"
+                        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" required
+                        @if (Cookie::has('userpassword'))
+                            value="{{ Cookie::get('userpassword') }}"
+                        @endif>
+                        @error('password')
+                            <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                                {{ $message }}
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="flex items-center mt-2 justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" value="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                            @if (Cookie::has('username')) checked @endif>
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-900"> Remember me </label>
+                        </div>
+                        {{-- <div class="text-sm">
+                            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> Lupa NIK? </a>
+                        </div> --}}
                     </div>
                     <div class="flex justify-center items-baseline mt-3">
                         <button class="px-6 py-2 mt-4 w-full text-white bg-blue-600 rounded-lg hover:bg-blue-900">Masuk</button>

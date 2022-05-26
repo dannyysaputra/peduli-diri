@@ -13,15 +13,19 @@ class LoginController extends Controller
     }
 
     public function authenticate(Request $request) {
-        $credentials = $request->validate([
-            'name' => 'required',
-            'password' => 'required'
-        ]);
+        $credentials = $request->validate(
+            [
+                'name' => 'required',
+                'password' => 'required',
+            ]
+        );
 
-        if (Auth::attempt($credentials)) {
+        $remember_me = $request->has('remember-me')? true:false;
+
+        if (Auth::attempt($credentials, $remember_me)) {
             $request->session()->regenerate();
             return redirect('/home');
-        };
+        }
 
         return back()->with('failed', 'Percobaan masuk gagal. Silahkan coba lagi!');
     }

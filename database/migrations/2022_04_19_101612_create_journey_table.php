@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('journey', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->dateTime('tanggal');
+            $table->date('tanggal');
+            $table->time('jam');
             $table->string('lokasi');
             $table->integer('suhu');
             $table->timestamps();

@@ -25,14 +25,14 @@ class JourneyController extends Controller
     public function createData(Request $request) {
         $validateData = Validator::make($request->all(), [
             'suhu' => 'digits:2',
-            'tanggal' => 'after:today'
         ])->validate();
     
         $user_id = Auth::user()->id;
         
         $data = [
             'user_id' => $user_id,
-            'tanggal' => $validateData['tanggal'],
+            'tanggal' => $request->tanggal,
+            'jam' => $request->jam,
             'lokasi' => $request->lokasi,
             'suhu' => $validateData['suhu'],
         ];

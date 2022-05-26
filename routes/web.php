@@ -37,13 +37,19 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LogoutController::class, 'logout']);
 });
 
-Route::middleware(['guest'])->group(function () {
-    Route::get('/', [LoginController::class, 'index'])->name('auth.login');
+
+// Route::middleware(['guest'])->group(function () {
+//     Route::get('/', [LoginController::class, 'index'])->name('auth.login');
+//     Route::any('/login', [LoginController::class, 'authenticate']);
+
+//     Route::get('/daftar', [RegisterController::class, 'create'])->name('auth.register');
+//     Route::post('/post', [RegisterController::class, 'store']);
+// });
+Route::get('/', [LoginController::class, 'index'])->name('auth.login');
     Route::any('/login', [LoginController::class, 'authenticate']);
 
     Route::get('/daftar', [RegisterController::class, 'create'])->name('auth.register');
     Route::post('/post', [RegisterController::class, 'store']);
-});
 
 
 
