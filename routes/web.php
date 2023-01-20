@@ -23,6 +23,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [JourneyController::class, 'home'])->name('pages.home');
     Route::get('/catatan-perjalanan', [JourneyController::class, 'catatanPerjalanan'])->name('pages.dashboard');
 
+    Route::get('/export-pdf', [JourneyController::class, 'exportpdf'])->name('exportpdf');
+
     Route::get('/isi-data', [JourneyController::class, 'inputTable']);
     Route::post('/buat-data', [JourneyController::class, 'createData']);
 
@@ -46,10 +48,10 @@ Route::middleware(['auth'])->group(function () {
 //     Route::post('/post', [RegisterController::class, 'store']);
 // });
 Route::get('/', [LoginController::class, 'index'])->name('auth.login');
-    Route::any('/login', [LoginController::class, 'authenticate']);
+Route::any('/login', [LoginController::class, 'authenticate']);
 
-    Route::get('/daftar', [RegisterController::class, 'create'])->name('auth.register');
-    Route::post('/post', [RegisterController::class, 'store']);
+Route::get('/daftar', [RegisterController::class, 'create'])->name('auth.register');
+Route::post('/post', [RegisterController::class, 'store']);
 
 
 

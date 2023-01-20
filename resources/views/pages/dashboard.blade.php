@@ -82,7 +82,10 @@
                             </div>
                         </div>
                     </div>
-                    <a href="/isi-data" class="py-3 px-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Masukkan Data</a>
+                    <div class="flex justify-start">
+                        <a href="/export-pdf" class="mr-2 py-3 px-2 text-white bg-green-600 rounded-lg hover:bg-green-900">Export ke PDF</a>
+                        <a href="/isi-data" class="py-3 px-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Masukkan Data</a>
+                    </div>
                 </div>
             </form>
             

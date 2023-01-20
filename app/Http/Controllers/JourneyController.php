@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Journey;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -20,6 +21,15 @@ class JourneyController extends Controller
 
     public function inputTable() {
         return view('pages.input-data');
+    }
+
+    public function exportpdf(){
+        $data = Journey::all();
+
+        view()->share('data', $data);
+        $pdf = PDF::loadview('/pages/datajourney-pdf');
+        
+        return $pdf->download('data-perjalanan.pdf');
     }
 
     public function createData(Request $request) {

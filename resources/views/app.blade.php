@@ -24,7 +24,7 @@
     {{-- navbar --}}
     @include('layouts.navbar')
 
-    <div class="container items-center px-5 my-12 mx-12 bg-gray-200 rounded-md border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div class="container items-center px-5 my-12 w-11/12 mx-auto bg-gray-200 rounded-md border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
         @yield('app.content')
     </div>
 
