@@ -99,6 +99,9 @@
                             Tanggal
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Jam
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Lokasi
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -116,7 +119,8 @@
                     @foreach ($data as $d)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <th scope="row" class="px-3 py-1">{{ $id++ }}</th>
-                            <td class="px-6 py-3">{{ $d->tanggal }} {{ $d->jam }}</td>
+                            <td class="px-6 py-3">{{ $d->tanggal }}</td>
+                            <td class="px-6 py-3">{{ $d->jam }}</td>
                             <td class="px-6 py-3">{{ $d->lokasi }}</td>
                             <td class="px-6 py-3">{{ $d->suhu }}</td>
                             <td class="px-6 py-3">
